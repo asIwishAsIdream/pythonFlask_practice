@@ -1,8 +1,11 @@
+import os
+
 from flask import Flask, render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from flaskext.markdown import Markdown
+import psycopg2
 
 
 
@@ -13,6 +16,14 @@ naming_convention = {
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
     "pk": "pk_%(table_name)s"
 }
+# db = psycopg2.connect(
+#         host="localhost",
+#         database="flask_db",
+#         user=os.environ['DB_USERNAME'],
+#         password=os.environ['DB_PASSWORD'])
+# Open a cursor to perform database operations
+# cur = db.cursor()
+
 db = SQLAlchemy(metadata=MetaData(naming_convention=naming_convention))
 migrate = Migrate()
 

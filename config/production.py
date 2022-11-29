@@ -7,14 +7,14 @@ from dotenv import load_dotenv
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 
-SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}'.format(
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://{user}:{pw}@{url}/{db}:5432'.format(
     user=os.getenv('DB_USER'),
     pw=os.getenv('DB_PASSWORD'),
     url=os.getenv('DB_HOST'),
     db=os.getenv('DB_NAME'))
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-SECRET_KEY = '7nw?m8a!CNWTHd)nwL{dODo5eS~Q'
+# SECRET_KEY = '7nw?m8a!CNWTHd)nwL{dODo5eS~Q'
 
 dictConfig({
     'version': 1,
